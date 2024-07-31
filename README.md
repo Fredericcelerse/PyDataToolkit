@@ -1,7 +1,5 @@
 # PyDataToolkit
 
-![PyDataToolkit Logo](https://github.com/Fredericcelerse/PyDataToolkit/raw/main/logo.png)
-
 PyDataToolkit is a set of Python tools designed to simplify data processing and analysis. This project includes functionalities for data loading, categorical encoding, data normalization, polynomial feature creation, and more.
 
 ## Table of Contents
