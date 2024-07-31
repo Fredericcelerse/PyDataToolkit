@@ -64,7 +64,7 @@ train_data_top_features_df['SalePrice'] = y.values
 train_data_top_features_df.to_csv('../out/processed_train_top_10_features.csv', index=False)
 
 # For test data
-test_data = load_processed_data('/kaggle/working/processed_test_data.csv')
+test_data = load_processed_data('../out/processed_test_data.csv')
 
 # Generate polynomial features for the test data
 test_poly_df = generate_polynomial_features(test_data, poly)
