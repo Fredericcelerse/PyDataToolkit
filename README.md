@@ -33,7 +33,7 @@ cd PyDataToolkit
 pip install -r requirements.txt
 ```
 
-## Usage
+## Usage Examples
 
 ### Categorical Encoding
 Encode categorical columns using the **encode_categorical_columns** function:
