@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+import pandas as pd
+
 def load_data_csv(path: str):
     """
     Load CSV files.
