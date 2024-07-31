@@ -8,6 +8,7 @@ PyDataToolkit is a set of Python tools designed to simplify data processing and 
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Full Example](#full-example)
 - [Contributing](#contributing)
 
 ## Introduction
@@ -68,6 +69,10 @@ from utils.visualization import visualize_missing_data, plot_correlation_heatmap
 visualize_missing_data(train_data)
 plot_correlation_heatmap(train_data, top_features)
 ```
+
+## Full example
+
+A full example is providing in the [examples](examples) folder. 
 
 ## Contributing
 
