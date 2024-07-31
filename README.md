@@ -31,6 +31,7 @@ To install PyDataToolkit, you can clone the repository and install the required 
 git clone https://github.com/Fredericcelerse/PyDataToolkit.git
 cd PyDataToolkit
 pip install -r requirements.txt
+```
 
 ## Usage
 
