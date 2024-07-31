@@ -56,3 +56,15 @@ def impute_missing_values(data: pd.DataFrame):
     
     return data
 
+def separate_target_column(data: pd.DataFrame, target_column: str):
+    """
+    Extract the target column from DataFrame
+
+    :param data: DataFrame to input
+    :param target_column: the name of the column to extract
+    :return: two DataFrames, one for features and the other for target
+    """
+    target = data[target_column]
+    data = data.drop(columns=[target_column])
+    return data, target
+    
