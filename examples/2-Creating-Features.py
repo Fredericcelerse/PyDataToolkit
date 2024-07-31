@@ -48,15 +48,33 @@ top_correlated_features = get_top_correlated_features(correlations, top_n=10)
 print(top_correlated_features)
 print(f"Number of features = {len(correlations)}")
 
-# Save the new train set with only the best 10 features
-top_correlated_features.to_csv('../out/test_top_10_features.csv', index=False)
+# Extract the names of the top correlated features
+top_correlated_feature_names = [feature for feature, correlation in top_correlated_features]
+print("Top correlated feature names:", top_correlated_feature_names)
 
-# We do the same for the test set
-test_data = load_processed_data('../out/processed_test_data.csv')
-poly = PolynomialFeatures(degree=2, include_bias=False)
-scaler = StandardScaler()
+# Select the top correlated features from the DataFrame
+X_top_correlated_features_df = X_poly_scaled_df[top_correlated_feature_names]
+print("DataFrame with top correlated features:\n", X_top_correlated_features_df.head())
+
+# Add 'SalePrice' back to the training data
+train_data_top_features_df = X_top_correlated_features_df.copy()
+train_data_top_features_df['SalePrice'] = y.values
+
+# Save the new training data with top 10 features
+train_data_top_features_df.to_csv('../out/processed_train_top_10_features.csv', index=False)
+
+# For test data
+test_data = load_processed_data('/kaggle/working/processed_test_data.csv')
+
+# Generate polynomial features for the test data
 test_poly_df = generate_polynomial_features(test_data, poly)
+
+# Normalize the polynomial features for the test data
 test_poly_scaled_df = normalize_features(test_poly_df, scaler)
-test_top_10_features_df = select_top_features(test_poly_scaled_df, top_correlated_features)
+
+# Select the top 10 features from the test data
+test_top_10_features_df = select_top_features(test_poly_scaled_df, top_correlated_feature_names)
 print("Test DataFrame with top 10 features:\n", test_top_10_features_df.head())
+
+# Optionally, save the test data with top 10 features to a new CSV
 test_top_10_features_df.to_csv('../out/test_top_10_features.csv', index=False)
