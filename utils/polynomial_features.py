@@ -27,3 +27,13 @@ def normalize_features(X: pd.DataFrame):
     X_scaled = scaler.fit_transform(X)
     X_scaled_df = pd.DataFrame(X_scaled, columns=X.columns)
     return X_scaled_df
+
+def select_top_features(data: pd.DataFrame, top_features: list):
+    """
+    Select the top N features from the data.
+    
+    :param data: DataFrame of features
+    :param top_features: List of top feature names to select
+    :return: DataFrame with top features
+    """
+    return data[top_features]
