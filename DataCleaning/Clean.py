@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+import pandas as pd
+
 def check_missing_data(data: pd.DataFrame):
     """
     Check for missing data in train and test datasets.
